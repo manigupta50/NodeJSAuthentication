@@ -1,6 +1,6 @@
-# Issue Tracker
+# NodeJs Authentication
 
-This repository will help you track issues if you are building any project.
+This repository is for basic SignIn/SignOut and Google OAuth Login.
 
 ---
 ## Requirements
@@ -8,22 +8,12 @@ This repository will help you track issues if you are building any project.
 For development, you will only need Node.js and a node global package, npm, installed in your environment.
 
 ### DB Validations
-- #### User
+- #### Email
   Name is required with length 3  
-  Gender is required with "Male, Female, or Other" values only  
-  A valid email id required  
-  password is required  
+  A valid email id is required  
 
-- #### Projects
-  Name is required with length 1  
-  Description is required with length 2  
-
-- #### Issues
-  Title is required with length 1  
-  Description is required with length 2  
-  labels - at least one is required  
-
-  The app is hosted on render with URL `https://issuetracker-efyj.onrender.com/` failing to follow the validations rule will crash the applications since I didn't work on handling the validations on server but the errors will be printed in console.  
+- #### Password
+  Password is required.   
 
 ### Node
 - #### Node installation on Windows

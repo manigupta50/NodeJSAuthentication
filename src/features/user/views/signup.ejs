@@ -1,0 +1,57 @@
+<!-- HTML/CSS for SignUp page -->
+
+<div class="form signup">
+    <div class="form-content">
+        <header>Signup</header>
+        <form action="/api/users/signup" method="post">
+            <div class="field input-field">
+                <input type="email" placeholder="Email" class="input" name="email" autocomplete="off" required>
+            </div>
+            <div class="field input-field">
+                <input type="password" placeholder="Create password" class="password" id="Password" name="password" onkeyup='passConfirm();' required>
+            </div>
+            <div class="field input-field">
+                <input type="password" placeholder="Confirm password" class="password" id="ConfirmPassword" onkeyup='passConfirm();' required>
+                <i class='bx bx-hide eye-icon'></i>
+            </div>
+            <span id="Message"></span>
+            <div class="field button-field">
+                <button id="signup-submit">Signup</button>
+            </div>
+        </form>
+
+        <div class="form-link">
+            <span>Already have an account? <a href="/api/users/signin" class="link login-link">Login</a></span>
+        </div>
+    </div>
+    
+    <div class="line"></div>
+
+    <div class="media-options">
+        <a href="/auth/google" class="field google">
+            <i class="fab fa-google google-img"></i>
+            <span>Login with Google</span>
+        </a>
+    </div>
+</div>
+<script>
+    const pass = document.getElementById("Password");
+    const confirmPass = document.getElementById("ConfirmPassword");
+    const message = document.getElementById("Message");
+    var passConfirm = function() {
+        document.getElementById("signup-submit").disabled = pass.value.length === 0 || pass.value != confirmPass.value;
+        if(pass.value.length == 0) {
+            message.style.color = "Red";
+            message.innerHTML = "Passwords Cannot Be Empty!"
+        } else {
+            if (pass.value == confirmPass.value) {
+                message.style.color = "Green";
+                message.innerHTML = "Passwords Matches!"
+            } else {
+                message.style.color = "Red";
+                message.innerHTML = "Passwords Do NOT Match!"
+            }
+        }
+    }
+
+</script>
