@@ -47,15 +47,16 @@ If you need to update `npm`, you can make it using `npm` or manage the version u
 
 ## Install
 
-    $ git clone https://github.com/manigupta50/IssueTracker/
-    $ cd IssueTracker
+    $ git clone https://github.com/manigupta50/NodeJSAuthentication.git
+    $ cd NodeJSAuthentication
     $ npm install
 
 ## Configure app
 
 Create a .env file `/.env` then edit it with a few mentions. You will need:
 
-- MongoDB connection, store the path in a `DB_URL` variable;
+- MongoDB connection, store the path in a `DB_URL`, `SECRET_KEY`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, & `CALL_BACK_URL` variable;  
+GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, CALL_BACK_URL - these three variables value you will get from google console.
 
 ## Running the project
 
