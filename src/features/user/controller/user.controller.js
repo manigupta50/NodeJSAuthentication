@@ -10,7 +10,7 @@ export default class UserController {
 
   // Controllers for User Registration
   async getSignUp(req, res) {
-    return res.render('signup');
+    return res.render('signup', { success: true, msg: null});
   }
   async postSignUp(req, res) {
     const { email } = req.body;
@@ -20,7 +20,7 @@ export default class UserController {
       password = hashedPassword;
       const userData = { email, password };
       const user = await this.userRepository.postSignUp(userData);
-      if(user) return res.status(201).redirect('/api/users/signin', { success: true });
+      if(user) return res.status(201).redirect('/api/users/signin');
       else return res.status(400).render('signup', { success: false, msg: "Email already in use" });
     } catch(err) {
         console.log(err);

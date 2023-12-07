@@ -4,6 +4,9 @@
     <div class="form-content">
         <header>Signup</header>
         <form action="/api/users/signup" method="post">
+            <% if(!success) { %>
+                <span id="email-message" style="color: red;"> <%= msg %> </span>
+            <% } %>
             <div class="field input-field">
                 <input type="email" placeholder="Email" class="input" name="email" autocomplete="off" required>
             </div>
