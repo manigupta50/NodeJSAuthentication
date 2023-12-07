@@ -26,7 +26,6 @@ passport.use(new GoogleStrategy({
         // return done(null, profile);
         const user = await UserModel.findOne({ email: profile.email });
         if(user) {
-            console.log("user: " + user);
             return done(null, profile);
         } else {
             const password = profile._json.email + profile.id;
