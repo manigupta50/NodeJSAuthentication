@@ -25,15 +25,14 @@ passport.use(new GoogleStrategy({
         console.log("profile.id: " + JSON.stringify(profile));
         // return done(null, profile);
         const user = await UserModel.findOne({ email: profile.email });
-        console.log("user: " + user);
         if(user) {
             console.log("user: " + user);
             return done(null, profile);
         } else {
             const password = profile._json.email + profile.id;
-            const hashedPassword = await hashPassword(password, next);
+            const hashedPassword = await hashPassword(password);
             const newUser = await UserModel.create({ email: profile._json.email, password: hashedPassword});
-            await sendMail("WELCOME", email);
+            await sendMail("WELCOME", profile._json.email );
             return done(null, profile);
         }
         // const user = await UserModel.findOrCreate({ email: profile.id }, function (err, user) {

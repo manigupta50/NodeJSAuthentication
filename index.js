@@ -34,7 +34,7 @@ app.use(loggerMiddleware);
 // Cookie Session
 app.use(cookieSession({
     name: 'session',
-    keys: ['key1', 'key2'],
+    keys: [process.env.SECRET_KEY],
     // Cookie Options
     maxAge: 9 * 60 * 1000 // 9 minutes
 }));
